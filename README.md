@@ -2,7 +2,8 @@
 
 单文件 HTML5 3D 射击游戏。整个游戏（含 Three.js、贴图、音效合成）打包在一个 1.36 MB 的 HTML 里，不联网、不落盘、无后端。
 
-- 线上地址：https://efmmppl.github.io/shoot/
+- 线上地址：https://shoot.kuak.top/ （自定义域名，推荐）
+- 备用地址：https://efmmppl.github.io/shoot/ （配置 CNAME 后会 301 跳转到上面的域名）
 - 仓库地址：https://github.com/efmmppl/shoot
 - SHA256：`9E55B5200B088ADAF8E1152DA04EFC0D3B25E236E6BAF2DEE96F81E23E084966`
 
@@ -33,6 +34,40 @@ git push -u origin main
 约 1 分钟后可通过 `https://<用户名>.github.io/<仓库>/` 访问。
 
 要求：根路径必须有 `index.html`，否则访问目录会 404。文件名含中文也能部署，但 URL 会变成一串 `%E5%87%A0...`，所以统一改名为 `index.html`。
+
+#### 自定义域名（CNAME）
+
+当前使用的域名：`shoot.kuak.top`
+
+1. **DNS 记录**（在你的域名服务商处添加）：
+
+   ```
+   类型   主机记录   记录值
+   CNAME  shoot      efmmppl.github.io
+   ```
+
+   注意是 `shoot` 而不是 `shoot.kuak.top`，也不要在末尾加点。如果用 Cloudflare 代理（橙色云朵），请先切成 DNS only（灰色云朵），等 Pages 签发证书后再开代理，否则证书验证会失败。
+
+2. **仓库根目录放 `CNAME` 文件**，内容只有一行域名（不要带 `https://`，不要带路径，末尾不要换行）：
+
+   ```
+   shoot.kuak.top
+   ```
+
+   GitHub 网页版 Settings → Pages → Custom domain 填写后会自动生成该文件，不要手动删掉，否则每次部署都会丢失域名。
+
+3. **等待证书签发**：首次配置后 Let's Encrypt 证书需要 5~30 分钟，期间 `https://` 访问会握手失败，属正常现象。可在仓库 Settings → Pages 查看状态，变为 `Certificate: active` 后即可访问。
+
+4. **强制 HTTPS**：证书生效后，在 Settings → Pages 勾选 `Enforce HTTPS`，HTTP 请求会被 301 到 HTTPS。
+
+5. **生效后的地址行为**：`https://efmmppl.github.io/shoot/` 会 301 跳转到 `https://shoot.kuak.top/`，原始域名不再直接提供服务，对外分享请统一用自定义域名。
+
+6. **验证是否就绪**：
+
+   ```powershell
+   Resolve-DnsName shoot.kuak.top -Type CNAME   # 应返回 efmmppl.github.io
+   Invoke-WebRequest https://shoot.kuak.top/ -Method Head   # 应返回 200
+   ```
 
 ## 安全说明
 
@@ -96,6 +131,7 @@ GitHub Pages 在国内访问不稳定。由于启动文案是写死在 `index.ht
 - 临时用 jsDelivr CDN：`https://cdn.jsdelivr.net/gh/efmmppl/shoot@main/index.html`
 - 换托管平台：Cloudflare Pages / Netlify，国内访问明显快于 GitHub Pages，均可直连 GitHub 仓库自动部署
 - 本地直接双击 `index.html`
+- 已有自定义域名 `shoot.kuak.top`，但它只是 CNAME 到 `efmmppl.github.io`，**流量仍然回源到 GitHub Pages，不会加速**。若要提速，需把域名接入 Cloudflare 代理（橙色云朵）利用其 CDN 缓存，或干脆迁到 Cloudflare Pages
 
 ### 4. 首次进入要等几秒
 
