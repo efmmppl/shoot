@@ -6172,13 +6172,7 @@ vObjP = position; vONrm = normal; vWNrm = normalize(mat3(modelMatrix) * normal);
         </div>
         <button class="btn small" data-act="close-panel">关闭</button>
       </header>
-      <div class="panel-b about-copy" data-pane="about" hidden>
-        <h3>猫饼3A大作</h3>
-        <p>各位老师、同学好！宣传一下我们最近使用 Fable5.2 自主研发的一款国产 3A FPS 大作——<strong>《猫饼》</strong>！🎮</p>
-        <p>我们致力于打造具有中国特色的高品质第一人称射击游戏，融合沉浸式战斗体验、创新玩法与次世代视觉表现，探索国产 FPS 游戏的更多可能性。</p>
-        <p>目前项目仍在持续开发与优化中，距离国际顶尖 3A 水准还有一定差距。</p>
-        <p>非常欢迎各位老师、同学关注、体验并提出宝贵建议，期待与游戏开发、图形学及 AI 方向的朋友深入交流！🐱🔥</p>
-      </div>
+      <div class="panel-b about-copy" data-pane="about" hidden><h3>猫饼3A大作</h3></div>
       <div class="panel-b" data-pane="settings">
         <div class="row"><label id="l-q">画面质量</label>
           <div class="seg" role="group" aria-labelledby="l-q">${dM.map(U=>`<button data-q="${U}" aria-pressed="false">${({low:"低",medium:"中",high:"高",ultra:"极高"})[U]}</button>`).join("")}</div></div>

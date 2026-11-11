@@ -5,7 +5,7 @@
 - 线上地址：https://shoot.kuak.top/ （自定义域名，推荐）
 - 备用地址：https://efmmppl.github.io/shoot/ （配置 CNAME 后会 301 跳转到上面的域名）
 - 仓库地址：https://github.com/efmmppl/shoot
-- SHA256：`847C5721A7979A6DE8513DC98F756A805BE8EB1495C4B0467D4A23CAB9D49EDE`
+- SHA256：`C1239C754A1BF31AE27A8BD7FFF0A0E1A1421DFD2EB4007AA420BC76D274F398`
 
 ## 文件结构
 
