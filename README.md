@@ -1,16 +1,16 @@
-# 几猫国产3A大作 V1
+# 猫饼国产3A大作 V1
 
 单文件 HTML5 3D 射击游戏。整个游戏（含 Three.js、贴图、音效合成）打包在一个 1.36 MB 的 HTML 里，不联网、不落盘、无后端。
 
 - 线上地址：https://shoot.kuak.top/ （自定义域名，推荐）
 - 备用地址：https://efmmppl.github.io/shoot/ （配置 CNAME 后会 301 跳转到上面的域名）
 - 仓库地址：https://github.com/efmmppl/shoot
-- SHA256：`9E55B5200B088ADAF8E1152DA04EFC0D3B25E236E6BAF2DEE96F81E23E084966`
+- SHA256：`847C5721A7979A6DE8513DC98F756A805BE8EB1495C4B0467D4A23CAB9D49EDE`
 
 ## 文件结构
 
 ```
-index.html    游戏本体（唯一构建产物，重命名自「几猫国产3A大作_V1.html」）
+index.html    游戏本体（唯一构建产物，重命名自「猫饼国产3A大作_V1.html」）
 README.md     本文档
 ```
 
@@ -114,7 +114,7 @@ git push -u origin main
 
 若之后发现确实卡顿且 `chrome://gpu` 显示软渲染，再把该参数加回去即可。
 
-### 3. 部署后 PC 打开很慢 / 一直卡在「正在载入几猫港区」
+### 3. 部署后 PC 打开很慢 / 一直卡在「正在载入猫饼港区」
 
 是网络问题，不是游戏问题。实测同一文件在本机拉取：
 
